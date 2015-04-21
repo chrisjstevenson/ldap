@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="loginApp">
+<head>
+    <title>ldapsearch</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro"/>
+    <link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="vendor/ng-grid/ng-grid.css" />
+    <link rel="stylesheet" type="text/css" href="main.css" />
+
+    <script src="/vendor/angular/angular.js"></script>
+    <script src="/vendor/angular-resource/angular-resource.js"></script>
+    <script src="/vendor/jquery/dist/jquery.js"></script>
+    <script src="/vendor/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/vendor/ng-grid/ng-grid-2.0.14.min.js"></script>
+    <script src="/js/LoginCtrl.js"></script>
+
+</head>
+
+<body>
+    <br>
+    <div class="container">
+        <div class="row">
+
+        <form class="col-md-4 center" ng-submit="submit()" ng-controller="LoginCtrl">
+            <div class="search form-group">
+                <label>Last Name</label>
+                <input type="text" ng-model="lastName" name="lastName" />&nbsp;&nbsp;
+                <button type="submit" class="btn btn-success">
+                    Search
+                </button>
+            </div>
+            <!--<div class="form-group">-->
+                <!--<label>ID</label>-->
+                <!--<input type="text" ng-model="text" name="userId" />-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+                <!--<label>Password</label>-->
+                <!--<input type="password" ng-model="password" name="password" />-->
+            <!--</div>-->
+            <!--<input type="submit" id="submit" value="Submit" />-->
+            <div class="gridStyle" ng-grid="gridOptions"></div>
+            <!--<div>{{results}}</div>-->
+        </form>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+<!--[{"dn":"CN=Stevenson Jr\\, Ben a995608,OU=Default,OU=Users,OU=Best Buy,OU=Users and Groups,DC=na,
+DC=bestbuy,DC=com","cn":"Stevenson Jr, Ben a995608","sn":"Stevenson Jr","givenName":"Ben",
+"whenCreated":"20121129062623.0Z","displayName":"Stevenson Jr, Ben - CW",
+"userAccountControl":"512","employeeID":"995608","pwdLastSet":"130359278629795117",
+"sAMAccountName":"a995608","userPrincipalName":"a995608@bestbuy.com","mail":"Ben.StevensonJr@bestbuy.com"},-->
