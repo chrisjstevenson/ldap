@@ -3,26 +3,21 @@ var express = require('express'),
     colors = require('colors'),
     bodyParser = require('body-parser'),
     ActiveDirectory = require('activedirectory'),
-    methodOverride = require('method-override'),               // simulate DELETE and PUT (express4)
+    methodOverride = require('method-override'),
     config = require('./config/config');
 
 var app = express();
 
-app.use(express.static(__dirname + '/assets'));                 // set the static file location
-app.use(morgan('dev'));                                         // log every request to the console
-app.use(bodyParser.urlencoded({'extended': 'true' }));          // parse application/x-www-form-urlencoded
-app.use(bodyParser.json());                                     // parse application/json
-app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
+app.use(express.static(__dirname + '/assets'));
+app.use(morgan('dev'));
+app.use(bodyParser.urlencoded({'extended': 'true' }));
+app.use(bodyParser.json());
+app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 app.use(methodOverride());
 
 
 app.get('/', function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
-});
-
-
-app.get('/api/auth', function(req, res) {
-   res.send('200 OK')
 });
 
 app.post('/api/auth', function(req, res) {
